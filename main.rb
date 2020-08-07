@@ -1,6 +1,6 @@
 require 'telegram/bot'
+require 'dotenv/load'
 
-TOKEN = '1325239525:AAHOEG-cmA8n9M0PYnIEmZfALDf4vOKeIjg'.freeze
 ANSWERS = [
   # Положительные
   'Бесспорно',
@@ -28,7 +28,7 @@ ANSWERS = [
   'Весьма сомнительно'
 ].freeze
 
-Telegram::Bot::Client.run(TOKEN) do |bot|
+Telegram::Bot::Client.run(ENV['ACCESS_TOKEN']) do |bot|
   bot.listen do |message|
     case message.text
     when '/start', '/start start'
